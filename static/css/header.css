@@ -5,7 +5,7 @@ header {
     align-items: center; /* 세로 가운데 정렬 */
     padding: 0 20px;
     justify-content: space-between; /* h1은 왼쪽, nav는 오른쪽 정렬 */
-    background-color: #f8f9fa; /* 헤더 배경색 */
+    background-color: #486CB9;
 }
 
 /* 로고 스타일링 */
