@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>코드 출력</h1>
+    {% for ml in code %}
+    <li>{{loop.index}}: {{ml}} </li>
+    {% endfor %}
+
+    <h2>취약 여부</h2>
+    {{vul}}
+
+    <h2>취약 종류</h2>
+    {{vul_type}}
+
+    <h2>CVSS 스코어</h2>
+    <span>Score : {{cvss}}</span>
+
+    <h2>취약한 라인</h2>
+    {% for line in lines %}
+    <ol>{{line}}</a><br></ol>
+    {% endfor %}
+
+    <h2>관련 CVE</h2>
+    {% for cv in cve %}
+    <ol><a href="{{cv.cve_url}}">{{cv.cve_id}}</a><br></ol>
+    {% endfor %}
+</body>
+</html>
