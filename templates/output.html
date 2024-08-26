@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet",type="text/css" href = "/static/css/init.css">
-    <link rel="stylesheet",type="text/css" href = "/static/css/header.css">
-    <link rel="stylesheet",type="text/css" href = "/static/css/footer.css">
-    <link rel="stylesheet",type="text/css" href = "/static/css/output.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/init.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/output.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -22,6 +24,7 @@
                 <li><a href="https://cwe.mitre.org/">CWE List</a></li>
                 <li><a href="https://www.owasp.org/index.php/Category:OWASP_Development_Guidelines">OWASP Development Guidelines</a></li>
             </ul>
+            <button id="download">PDF 추출</button>
         </nav>
     </header>
     <div class="container">
@@ -54,7 +57,7 @@
             <h2>관련 CVE</h2>
             <ul>
                 {% for cv in cve %}
-                <li><a href="{{cv.cve_url}}">{{cv.cve_id}}</a></li>
+                <li><a href="{{cv.cve_url}}">{{cv.cve_id}}</a> : {{cv.description}}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -77,5 +80,41 @@
            </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('download').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            
+            html2canvas(document.body, {
+                useCORS: true,
+                allowTaint: true,
+                logging: true,
+                backgroundColor: '#fff' // Ensure background is white
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = canvas.width * 0.75; // Scale to fit PDF width
+                const imgHeight = canvas.height * 0.75; // Scale to fit PDF height
+
+                let height = imgHeight * pdfWidth / imgWidth;
+                let position = 0;
+
+                while (height > pdfHeight) {
+                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+                    height -= pdfHeight;
+                    position -= pdfHeight;
+                    pdf.addPage();
+                }
+                
+                pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, height);
+                pdf.save('output.pdf');
+            }).catch(error => {
+                console.error('Error generating PDF:', error);
+            });
+        });
+    </script>
 </body>
 </html>

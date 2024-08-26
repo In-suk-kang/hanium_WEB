@@ -24,6 +24,7 @@ def upload_file():
     if vul_obj.get('vul') == 1:
        lines = vul_obj['lines']
        cve = get_cve(vul)
+       print(cve)
     cvss = get_cvss(vul)
     #------------------------------------------------
     codes = []
