@@ -1,0 +1,43 @@
+/* 전체 헤더 스타일링 */
+header {
+    height: 70px;
+    display: flex; /* h1과 nav를 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    padding: 0 20px;
+    justify-content: space-between; /* h1은 왼쪽, nav는 오른쪽 정렬 */
+    background-color: #f8f9fa; /* 헤더 배경색 */
+}
+
+/* 로고 스타일링 */
+header h1 {
+    margin: 0; /* 기본 마진 제거 */
+    font-family: sans-serif;
+}
+
+header h1 a img {
+    height: 50px; /* 로고 이미지의 높이를 적절히 조절 */
+}
+
+/* 내비게이션 스타일링 */
+.nav ul {
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    margin: 0;
+    padding: 0;
+    display: flex; /* 플렉스 박스로 설정하여 가로로 나열 */
+    align-items: center; /* 세로 가운데 정렬 */
+    font-family: sans-serif;
+}
+
+.nav ul li {
+    margin-left: 20px; /* 리스트 아이템 간 간격 설정 */
+}
+
+.nav ul li a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #000; /* 링크 색상 설정 */
+    font-weight: bold;
+}
+
+.nav ul li a:hover {
+    color: #007bff; /* 링크에 마우스 오버 시 색상 변경 */
+}

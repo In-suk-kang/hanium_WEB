@@ -4,12 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet",type="text/css" href = "/static/css/init.css">
+    <link rel="stylesheet",type="text/css" href = "/static/css/header.css">
+    <link rel="stylesheet",type="text/css" href = "/static/css/footer.css">
+    <link rel="stylesheet",type="text/css" href = "/static/css/input.css">
+    
 </head>
 <body>
-    <h1>안녕</h1>
-    <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
-        <input type="file" id="file-upload" name="file-upload">
-        <button type="submit">업드</button>
-    </form>
+    <header>
+        <h1>
+            <a href="/">
+                <em><img src="/img/logo.png" alt="SECURE CODING"></em>
+            </a>
+        </h1>
+        <nav class="nav">
+            <ul class="clearfix">
+                <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></li>
+                <li><a href="https://cwe.mitre.org/">CWE List</a></li>
+                <li><a href="https://www.owasp.org/index.php/Category:OWASP_Development_Guidelines">OWASP Development Guidelines</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class = "upload">
+            <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
+                <input type="file" id="file-upload" name="file-upload">
+                <button type="submit">업드</button>
+            </form>
+        </div>
+    </main>
+    <footer id="footer">
+        <div id="footer_info">
+           <div class="container">
+              <div class="row">
+                 <div class="footer_info">
+                    <p>&copy; 2024 My Website. All rights reserved.</p>
+                    <address>
+                        <p>강인석</p>
+                        <p>윤건우</p>
+                        <p>김보송</p>
+                        <p>박솔빈</p>
+                        <p>조준형</p>
+                    </address>
+                 </div>
+              </div>
+           </div>
+        </div>
+    </footer>
 </body>
 </html>
