@@ -5,6 +5,7 @@ from cve import get_cve
 from cvss import get_cvss
 from ai import check_vulnerabilities
 from vul_type import getType
+from get_description import get_description
 app = Flask(__name__)
 @app.route('/')
 def index():
@@ -21,17 +22,17 @@ def upload_file():
     cve = []
     vul = vul_obj['vul']
     vul_type = getType(vul)
+    vul_desc = get_description(vul)
     if vul_obj.get('vul') == 1:
        lines = vul_obj['lines']
        cve = get_cve(vul)
-       print(cve)
     cvss = get_cvss(vul)
     #------------------------------------------------
     codes = []
     with open(filepath, 'r') as file:
         codes = file.readlines()
     #------------------------------------------------
-    return render_template('output.html',code=codes,cve=cve,cvss=cvss,vul = vul,vul_type = vul_type,lines = lines)
+    return render_template('output.html',code=codes,cve=cve,cvss=cvss,vul = vul,vul_type = vul_type,lines = lines,vul_desc = vul_desc)
     
 if __name__ == '__main__':
     app.run(debug=True) 
