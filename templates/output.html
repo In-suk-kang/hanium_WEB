@@ -27,6 +27,7 @@
             <button id="download">PDF 추출</button>
         </nav>
     </header>
+    <main>
     <div class="container">
         <div id="code">
             <h1>코드 출력</h1>
@@ -42,32 +43,45 @@
             <p>{{vul}}</p>
     
             <h2>취약 종류</h2>
-            <p>{{vul_type}} : {{vul_desc}}</p>
+            <span>{{vul_type}}{% if vul_desc %} : {{vul_desc}}{% endif %}</span>
     
+            {% if cvss %}
             <h2>CVSS 스코어</h2>
             <span>Score : {{cvss}}</span>
+            {% endif %}
     
+            {% if lines %}
             <h2>취약한 라인</h2>
             <ol>
                 {% for line in lines %}
                 <li>{{line}}</li>
                 {% endfor %}
             </ol>
+            {% endif %}
     
+            {% if cve %}
             <h2>관련 CVE</h2>
             <ul>
                 {% for cv in cve %}
                 <li><a href="{{cv.cve_url}}">{{cv.cve_id}}</a> : {{cv.description}}</li>
                 {% endfor %}
             </ul>
+            {% endif %}
+    
+            {% if Countermeasures %}
+            <h2>대응 방법</h2>
+            <span>{{Countermeasures}}</span>
+            {% endif %}
         </div>
     </div>
+    </main>
+
     <footer id="footer">
         <div id="footer_info">
            <div class="container">
               <div class="row">
                  <div class="footer_info">
-                    <p>&copy; 2024 My Website. All rights reserved.</p>
+                    <p>&copy; 2024 한이음 프로젝트 Code BOomBOom. All rights reserved.</p>
                     <address>
                         <p>강인석</p>
                         <p>윤건우</p>
@@ -80,7 +94,6 @@
            </div>
         </div>
     </footer>
-
     <script>
         document.getElementById('download').addEventListener('click', () => {
             const { jsPDF } = window.jspdf;
