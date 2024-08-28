@@ -5,18 +5,33 @@ header {
     align-items: center; /* 세로 가운데 정렬 */
     padding: 0 20px;
     justify-content: space-between; /* h1은 왼쪽, nav는 오른쪽 정렬 */
-    background-color: #486CB9;
+    background-color: #2F365f;
 }
+
+/* header.css */
 
 /* 로고 스타일링 */
 header h1 {
     margin: 0; /* 기본 마진 제거 */
     font-family: sans-serif;
+    margin-left: 40px;
 }
 
-header h1 a img {
-    height: 50px; /* 로고 이미지의 높이를 적절히 조절 */
+header h1 a {
+    display: flex; /* 로고와 텍스트를 가로로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #FEBEB0; /* 텍스트 색상 설정 */
+    font-size: 1.5rem; 
+    font-weight:1000;    
 }
+header h1 a img {
+    height: 60px; /* 로고 이미지의 높이를 조절하여 크기를 키움 */
+    width: auto; /* 가로 비율을 유지하면서 높이만 조절 */
+    margin-right: 10px;
+    color:#F7F1ED
+}
+
 
 /* 내비게이션 스타일링 */
 .nav ul {
@@ -34,10 +49,10 @@ header h1 a img {
 
 .nav ul li a {
     text-decoration: none; /* 링크 밑줄 제거 */
-    color: #000; /* 링크 색상 설정 */
+    color:#F7F1ED; /* 링크 색상 설정 */
     font-weight: bold;
 }
 
 .nav ul li a:hover {
-    color: #007bff; /* 링크에 마우스 오버 시 색상 변경 */
+    color: #FEBEB0; /* 링크에 마우스 오버 시 색상 변경 */
 }

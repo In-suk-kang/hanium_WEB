@@ -1,13 +1,82 @@
+/* 기본 스타일 초기화 */
 * {
     margin: 0;
     padding: 0;
 }
 
+/* 업로드 컨테이너 스타일 */
 .upload {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 200px); /* 브라우저의 높이에 따라 유연하게 조정 */
     display: flex;
+    flex-direction: column; /* 수직 방향으로 정렬 */
     justify-content: center;
     align-items: center;
-    margin : 0 10px;
-    border : 10px
+    margin: 0 10px;
+    border: 2px solid #ccc; /* 기본 테두리 스타일 */
+    padding: 20px; /* 컨텐츠와 경계 간격을 조정 */
+    background-color: #f9f9f9; /* 배경색 추가 */
+    border-radius: 8px; /* 둥근 모서리 */
+}
+
+/* 버튼을 같은 줄에 배치하기 위한 스타일 */
+.upload form {
+    display: flex; /* 플렉스박스 레이아웃을 사용 */
+    align-items: center; /* 세로 가운데 정렬 */
+    gap: 10px; /* 버튼 간의 간격 */
+}
+
+/* 업로드 버튼 스타일 */
+#upload-form button[type="submit"] {
+    background-color: #2F365F; /* 버튼 배경색 */
+    color: white; /* 글씨 색상 */
+    font-family: "IBM Plex Sans KR", sans-serif; /* 글씨체 */
+    font-size: 14px; /* 글씨 크기 */
+    font-weight: 600; /* 글씨 굵기 */
+    padding: 8px 16px; /* 버튼의 내부 여백 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 6px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스를 버튼 위에 올리면 커서가 포인터로 변경 */
+    transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
+}
+
+/* 업로드 버튼 호버 효과 */
+#upload-form button[type="submit"]:hover {
+    background-color: #FEBEB0; /* 호버 시 버튼 색상 */
+}
+
+/* 숨겨진 파일 입력 요소 스타일 */
+#file-upload {
+    display: none; /* 파일 입력 요소 숨기기 */
+}
+
+/* 커스텀 파일 선택 버튼 스타일 */
+#custom-button {
+    background-color: #2F365F; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    font-family: "IBM Plex Sans KR", sans-serif; /* 버튼 폰트 */
+    font-size: 14px; /* 글자 크기 */
+    font-weight: 600; /* 글자 두께 */
+    padding: 8px 16px; /* 버튼 내부 여백 */
+    border: none; /* 테두리 제거 */
+    border-radius: 6px; /* 둥근 모서리 */
+    cursor: pointer; /* 커서 변경 */
+    transition: background-color 0.3s ease; /* 호버 효과 애니메이션 */
+}
+
+/* 커스텀 버튼 호버 효과 */
+#custom-button:hover {
+    background-color: #FEBEB0; /* 호버 시 색상 */
+}
+
+/* 파일 선택 버튼과 파일 이름 표시 */
+/* 파일 이름 표시 영역 스타일 */
+#file-name {
+    font-family: 'Pretendard-Regular', sans-serif; /* 폰트 설정 */
+    font-size: 17px; /* 폰트 크기 설정 */
+    color: #333; /* 폰트 색상 설정 */
+    margin-top: 10px; /* 위쪽 여백 */
+    display: block; /* 블록 요소로 설정하여 다른 요소와의 간격 조정 */
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 400;   
+    font-style: normal;
 }

@@ -8,13 +8,17 @@
     <link rel="stylesheet",type="text/css" href = "/static/css/header.css">
     <link rel="stylesheet",type="text/css" href = "/static/css/footer.css">
     <link rel="stylesheet",type="text/css" href = "/static/css/input.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     
 </head>
 <body>
     <header>
         <h1>
             <a href="/">
-                <em><img src="/img/logo.png" alt="Code BOom BOom"></em>
+                <em><img src="/static/img/logo.png" alt="Code BOom BOom"></em>
+                Code BOom BOom
             </a>
         </h1>
         <nav class="nav">
@@ -26,10 +30,18 @@
         </nav>
     </header>
     <main>
-        <div class = "upload">
+        <div class="upload">
             <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
-                <input type="file" id="file-upload" name="file-upload">
-                <button type="submit">업드</button>
+                <!-- 숨겨진 파일 입력 요소 -->
+                <input type="file" id="file-upload" name="file-upload" style="display: none;" />
+                
+                <!-- 커스텀 버튼 -->
+                <button type="button" id="custom-button">파일 선택</button>
+                <span id="file-name">선택된 파일이 없습니다.</span>
+                
+                <!-- 업로드 버튼 -->
+                <button type="submit">Upload</button>
+                <script src="/static/js/main.js"></script>
             </form>
         </div>
     </main>
@@ -40,11 +52,13 @@
                  <div class="footer_info">
                     <p>&copy; 2024 한이음 프로젝트 Code BOomBOom. All rights reserved.</p>
                     <address>
+
                         <p>강인석</p>
                         <p>윤건우</p>
                         <p>김보송</p>
                         <p>박솔빈</p>
                         <p>조준형</p>
+
                     </address>
                  </div>
               </div>
