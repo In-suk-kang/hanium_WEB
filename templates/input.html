@@ -14,21 +14,7 @@
     
 </head>
 <body>
-    <header>
-        <h1>
-            <a href="/">
-                <em><img src="/static/img/logo.png" alt="Code BOom BOom"></em>
-                Code BOom BOom
-            </a>
-        </h1>
-        <nav class="nav">
-            <ul class="clearfix">
-                <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></li>
-                <li><a href="https://cwe.mitre.org/">CWE List</a></li>
-                <li><a href="https://www.owasp.org/index.php/Category:OWASP_Development_Guidelines">OWASP Development Guidelines</a></li>
-            </ul>
-        </nav>
-    </header>
+    {% include 'header.html' %}
     <main>
         <div class="upload">
             <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
@@ -45,25 +31,6 @@
             </form>
         </div>
     </main>
-    <footer id="footer">
-        <div id="footer_info">
-           <div class="container">
-              <div class="row">
-                 <div class="footer_info">
-                    <p>&copy; 2024 한이음 프로젝트 Code BOomBOom. All rights reserved.</p>
-                    <address>
-
-                        <p>강인석</p>
-                        <p>윤건우</p>
-                        <p>김보송</p>
-                        <p>박솔빈</p>
-                        <p>조준형</p>
-
-                    </address>
-                 </div>
-              </div>
-           </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 </body>
 </html>
