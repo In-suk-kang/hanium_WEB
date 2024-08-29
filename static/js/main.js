@@ -8,4 +8,3 @@ document.getElementById("file-upload").addEventListener("change", function() {
     var fileName = this.files[0] ? this.files[0].name : "선택된 파일이 없습니다.";
     document.getElementById("file-name").textContent = fileName; // 선택된 파일 이름 표시
 });
-    
