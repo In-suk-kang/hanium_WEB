@@ -6,6 +6,7 @@ from cvss import get_cvss
 from ai import check_vulnerabilities
 from vul_type import getType
 from get_description import get_description
+from gpt import OpenAi
 app = Flask(__name__)
 @app.route('/')
 def index():
@@ -25,7 +26,6 @@ def upload_file():
     lines = vul_obj.get('lines', [])
     cve = get_cve(vul) if vul_obj.get('vul') == 1 else []
     cvss = get_cvss(vul) if vul_obj.get('vul') == 1 else None
-    
     return render_template(
         'output.html', 
         code=codes, 

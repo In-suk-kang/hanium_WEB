@@ -21,7 +21,7 @@ header h1 a {
     display: flex; /* 로고와 텍스트를 가로로 배치 */
     align-items: center; /* 세로 가운데 정렬 */
     text-decoration: none; /* 링크 밑줄 제거 */
-    color: #FEBEB0; /* 텍스트 색상 설정 */
+    color: white; /* 텍스트 색상 설정 */
     font-size: 1.5rem; 
     font-weight:1000;    
 }
