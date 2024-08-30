@@ -7,6 +7,7 @@ h2 {
     font-weight: bold; /* 제목을 굵게 설정 */
     border-bottom: 2px solid #ddd; /* 구분선을 두껍게 추가하여 시각적 구분 */
     padding-bottom: 8px; /* 구분선과 제목 사이 간격 추가 */
+    font-family:"IBM Plex Sans KR", sans-serif;
 }
 
 /* 일반 텍스트 스타일 */
@@ -14,7 +15,7 @@ p, span {
     margin-bottom: 18px; /* 각 요소 사이 간격 추가 */
     font-size: 16px; /* 글자 크기 확대 */
     line-height: 1.8; /* 줄 간격 확대 */
-    color: #555; /* 텍스트 색상 */
+    color: #555; /* 텍스트 색상 */  
 }
 
 /* 리스트 스타일 */
@@ -35,6 +36,7 @@ li {
     background-color: #f9f9f9; /* 배경색을 밝게 설정 */
     border-radius: 5px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05); /* 그림자 효과 */
+    font-family:"IBM Plex Sans KR", sans-serif;
 }
 
 /* 강조 표시가 필요한 텍스트 */
@@ -42,7 +44,17 @@ li {
     font-size: 20px; /* 강조 텍스트의 글자 크기 확대 */
     font-weight: bold; /* 강조를 위해 굵은 글씨체 */
     color:  #333; /* 강조 텍스트 색상 설정 */
+
+
+}.highlight-cvss {
+    font-weight: bold;
+    color: #333 ;/* CVSS는 파란색으로 강조 */
+    font-size: 20px; /* 다른 강조 요소보다 더 크게 */
+    background-color: #e6f7ff; /* CVSS만을 위한 밝은 배경 */
+    padding: 3px 5px;
+    border-radius: 4px;
 }
+
 
 /* PDF 다운로드 버튼 스타일 */
 #download {
@@ -57,6 +69,8 @@ li {
     cursor: pointer; /* 마우스를 버튼 위에 올리면 커서가 포인터로 변경 */
     transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
     margin-top: 20px; /* 위쪽 여백 */
+    display: block; /* 블록 요소로 설정하여 다른 요소와의 간격을 조정 */
+    margin: 20px auto; /* 버튼을 중앙 정렬 */
 }
 
 /* PDF 다운로드 버튼 호버 효과 */

@@ -81,3 +81,25 @@
     font-style: normal;
 }
 
+
+#download {
+    background-color: #2F365F; /* 버튼 배경색 */
+    color: white; /* 버튼 텍스트 색상 */
+    font-family: "IBM Plex Sans KR", sans-serif; /* 글씨체 */
+    font-size: 14px; /* 글씨 크기 */
+    font-weight: 600; /* 글씨 굵기 */
+    padding: 8px 16px; /* 버튼의 내부 여백 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 6px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스를 버튼 위에 올리면 커서가 포인터로 변경 */
+    transition: background-color 0.3s ease; /* 배경색 변화 애니메이션 */
+    margin-top: 20px; /* 위쪽 여백 */
+    display: block; /* 블록 요소로 설정하여 다른 요소와의 간격을 조정 */
+    margin: 20px auto; /* 버튼을 중앙 정렬 */
+}
+
+/* PDF 다운로드 버튼 호버 효과 */
+#download:hover {
+    background-color: #FEBEB0; /* 호버 시 버튼 색상 */
+}
+
