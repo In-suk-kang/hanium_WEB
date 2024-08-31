@@ -1,12 +1,8 @@
-/* 기본 스타일 초기화 */
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 /* 업로드 컨테이너 스타일 */
 .upload {
-    height: calc(100vh - 200px); /* 브라우저의 높이에 따라 유연하게 조정 */
+    height: calc(100vh - 220px); /* 브라우저의 높이에 따라 유연하게 조정 */
     display: flex;
     flex-direction: column; /* 수직 방향으로 정렬 */
     justify-content: center;
@@ -32,7 +28,7 @@
     font-family: "IBM Plex Sans KR", sans-serif; /* 글씨체 */
     font-size: 14px; /* 글씨 크기 */
     font-weight: 600; /* 글씨 굵기 */
-    padding: 8px 16px; /* 버튼의 내부 여백 */
+    padding: 16px 32px; /* 버튼의 내부 여백 */
     border: none; /* 기본 테두리 제거 */
     border-radius: 6px; /* 둥근 모서리 */
     cursor: pointer; /* 마우스를 버튼 위에 올리면 커서가 포인터로 변경 */
@@ -56,7 +52,7 @@
     font-family: "IBM Plex Sans KR", sans-serif; /* 버튼 폰트 */
     font-size: 14px; /* 글자 크기 */
     font-weight: 600; /* 글자 두께 */
-    padding: 8px 16px; /* 버튼 내부 여백 */
+    padding: 16px 32px; /* 버튼 내부 여백 */
     border: none; /* 테두리 제거 */
     border-radius: 6px; /* 둥근 모서리 */
     cursor: pointer; /* 커서 변경 */
@@ -67,12 +63,21 @@
 #custom-button:hover {
     background-color: #FEBEB0; /* 호버 시 색상 */
 }
-
+.upload-form-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+    border : 5px solid #2F365f;
+    border-radius: 10px;
+    width : 500px;
+    height : 300px
+}
 /* 파일 선택 버튼과 파일 이름 표시 */
 /* 파일 이름 표시 영역 스타일 */
 #file-name {
     font-family: 'Pretendard-Regular', sans-serif; /* 폰트 설정 */
-    font-size: 17px; /* 폰트 크기 설정 */
+    font-size: 20px; /* 폰트 크기 설정 */
     color: #333; /* 폰트 색상 설정 */
     margin-top: 10px; /* 위쪽 여백 */
     display: block; /* 블록 요소로 설정하여 다른 요소와의 간격 조정 */

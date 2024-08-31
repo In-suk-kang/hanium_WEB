@@ -12,22 +12,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/static/js/main.js"></script>
 </head>
 <body>
     {% include 'header.html' %}
     <main>
         <div class="upload">
             <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
-                <!-- 숨겨진 파일 입력 요소 -->
-                <input type="file" id="file-upload" name="file-upload" style="display: none;" />
-                
-                <!-- 커스텀 버튼 -->
-                <button type="button" id="custom-button">파일 선택</button>
-                <span id="file-name">선택된 파일이 없습니다.</span>
-                
-                <!-- 업로드 버튼 -->
-                <button type="submit">Upload</button>
-                <script src="/static/js/main.js"></script>
+                <div class="upload-form-inner">
+                    <input type="file" id="file-upload" name="file-upload" style="display: none;" />
+                    <button type="button" id="custom-button">파일 선택</button>
+                    <span id="file-name">선택된 파일이 없습니다.</span>
+                    <button type="submit">Upload</button>
+                </div>
             </form>
         </div>
     </main>
