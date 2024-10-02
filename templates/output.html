@@ -83,40 +83,49 @@
     {% include 'footer.html' %}
     <script>
         document.getElementById('download').addEventListener('click', () => {
-    const { jsPDF } = window.jspdf;
-    const element = document.getElementById('result'); // Replace with your element's ID
-
-    html2canvas(element, {
-        useCORS: true,
-        allowTaint: true,
-        logging: true,
-        backgroundColor: '#fff' // Ensure background is white
-    }).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4');
-
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-        const imgWidth = canvas.width * 0.75; // Scale to fit PDF width
-        const imgHeight = canvas.height * 0.75; // Scale to fit PDF height
-
-        let height = imgHeight * pdfWidth / imgWidth;
-        let position = 0;
-
-        while (height > pdfHeight) {
-            pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
-            height -= pdfHeight;
-            position -= pdfHeight;
-            pdf.addPage();
-        }
-
-        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, height);
-        pdf.save('output.pdf');
-    }).catch(error => {
-        console.error('Error generating PDF:', error);
-    });
-});
-
-    </script>
+            const { jsPDF } = window.jspdf;
+            const element = document.getElementById('result'); // Replace with your element's ID
+        
+            html2canvas(element, {
+                useCORS: true,
+                allowTaint: true,
+                logging: true,
+                backgroundColor: '#fff' // Ensure background is white
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+        
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = canvas.width * 0.75; // Scale to fit PDF width
+                const imgHeight = canvas.height * 0.75; // Scale to fit PDF height
+        
+                // Calculate the height based on the aspect ratio
+                const ratio = canvas.width / canvas.height;
+                let newImgHeight = pdfWidth / ratio;
+        
+                let position = 0;
+                let remainingHeight = newImgHeight;
+        
+                // While there is content that won't fit on the current page, split and add pages
+                while (remainingHeight > pdfHeight) {
+                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight); // Full page
+                    remainingHeight -= pdfHeight;
+                    position -= pdfHeight; // Adjust for next page
+                    pdf.addPage();
+                }
+        
+                // Add the last part that fits in the remaining height
+                if (remainingHeight > 0) {
+                    pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, remainingHeight);
+                }
+        
+                pdf.save('output.pdf');
+            }).catch(error => {
+                console.error('Error generating PDF:', error);
+            });
+        });
+        </script>
+        
 </body>
 </html>
