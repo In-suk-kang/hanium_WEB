@@ -15,7 +15,7 @@ p, span {
     margin-bottom: 18px; /* 각 요소 사이 간격 추가 */
     font-size: 16px; /* 글자 크기 확대 */
     line-height: 1.8; /* 줄 간격 확대 */
-    color: #555; /* 텍스트 색상 */  
+    color: #000; /* 텍스트 색상 */  
 }
 
 /* 리스트 스타일 */

@@ -21,7 +21,6 @@ def call_gpt():
 
         response = response['choices'][0]['message']['content'].strip()
         result = response.split('\n')
-        print(result)
         return result
 
     except Exception as e:

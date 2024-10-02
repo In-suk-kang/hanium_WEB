@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import translate_api
 def get_cve(ai):
     vul_dict = {
         1:"stack+overflow",
@@ -24,16 +24,15 @@ def get_cve(ai):
             a_tag = cve_td.find('a')
             if a_tag:
                 cve_id = a_tag.text
-                cve_url = "https://cve.mitre.org" + a_tag['href']
+                cve_url = a_tag['href']
                 
                 # Get the next <td> for the description
                 description_td = cve_td.find_next_sibling('td')
                 description = description_td.text.strip() if description_td else "No description available"
-                
                 cve_details.append({
                     "cve_id": cve_id,
                     "cve_url": cve_url,
-                    "description": description
+                    "description": translate_api.translate(description)
                 })
             if len(cve_details) == 3: 
                 break
