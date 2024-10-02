@@ -1,28 +1,28 @@
+from dotenv import load_dotenv
+import os
 import openai
-def OpenAi(payload):
-    # OpenAI API 설정
-    openai.api_key = '' #key
 
-    model = "gpt-3.5-turbo"
+load_dotenv()
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
-    # 질문 작성하기
-    query = f"{payload} 취약점 대응방법 3가지알려줘"
+# GPT 모델 호출 함수
+def call_gpt():
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": "버퍼 오버플로우 해결방안 1줄씩 3가지 알려줘"}
+            ],
+            n=1,
+            stop=None,
+            temperature=0.7,
+        )
 
-    messages = [
-    {
-        "role": "system",
-        "content": "You are a helpful assistant who is good at detailing."
-    },
-    {
-        "role": "user",
-        "content": query
-    }
-    ]
+        response = response['choices'][0]['message']['content'].strip()
+        result = response.split('\n')
+        print(result)
+        return result
 
-    #  ChatGPT API 호출하기 함수 돌아갈 떄 feach로
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=messages
-    )
-    answer = response['choices'][0]['message']['content']
-    return answer
+    except Exception as e:
+        return f"Error: {e}"
