@@ -1,0 +1,5 @@
+__pycache__/
+upload/
+.env
+.venv/
+
